@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mostrar Mais</title>
+	<style type="text/css">
+		.section{
+			position: relative;
+			background: #fff;
+
+		}
+
+		.section > .txt-more{
+			display: block;
+			background: #fff;
+
+			/* posição do link no final da div*/
+			position: absolute;
+			right: 0;
+			bottom: 0;
+
+		}
+
+		.section > .partial{
+			height: 200px; /* limita a altura assim limitando o texto */
+			overflow: hidden;
+		}
+
+		.section > a::before{
+			content: "Ocultar"; /* texto de quando o texto estivel visivel*/
+
+		}
+
+		.section > a.txt-more::before{
+			content: "... Mostrar mais"; /* texto do link */ 
+		}
+
+	</style>
+</head>
+<body>
+<p>Vamos fazer a nossa terceira pagina. Copie o texto da primeira página e cole aqui na terceira (se quiser fazer na primeira, não tem problema.) Cole mais uma vez e vamos com o css primeiro. Mas primeiro! Façam a div</p>
+
+<p>Agora vamos ao java script. É bom lembrar que esse javascript, vai ficar no corpo. se colocar no cabeçalho, ele não irá funionar</p>
+<p>As vezes, inspecionar a tela, você acha seus erros. Até a próxima! Lembrem de inscrever, curtir, compartilhar e ativar o sino das notificações para "todas".</p>
+	<div class="section">
+		<div class="container partial">
+				Esse menu está muito normal. Bora deixá-lo com o dropdown.
+				É isso galera! Tive alguns erros, como por exemplo esse dois que faltaram e um hover, que ficou houver.
+				nav ul li{
+						float: left;
+					}
+					nav ul li:hover{
+						background: #0099cc;
+						background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+						background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+						background: -webkit-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+					}
+				Como ela funciona?
+					Para ela funcionar no site, iremos de um link "src". Se eu quiser colocar um video do youtube ou outra pagina, ou outra coisa. Exemplo! A segunda pagina.
+					O video do youtube? Também da certo. Peguei o link de um video do meu canal de detonado. Esqueci que precisa do "embed". Lembrem sempre disso. É ele que faz a nossa conexão com o youtube. vimos que deu conexão, mas que o video deu play. Quando acontecer isso, vá no video, clique em compartilhar e em incorporar
+				Agora podemos saber onde mexer. se colocar um menu, teremos que nomear a div de menu.
+				O comentario do CSS é /* */
+					
+					Só pra vocês verem, antes da tag link rel. Essa página ainda está obedecendo ao css interno. Agora! com o link rel. Não precisa dos dois pontos (..). Vamos usar mais pra frente.
+
+					Esse menu está muito normal. Bora deixá-lo com o dropdown.
+				É isso galera! Tive alguns erros, como por exemplo esse dois que faltaram e um hover, que ficou houver.
+				nav ul li{
+						float: left;
+					}
+					nav ul li:hover{
+						background: #0099cc;
+						background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+						background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+						background: -webkit-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+					}
+				Como ela funciona?
+					Para ela funcionar no site, iremos de um link "src". Se eu quiser colocar um video do youtube ou outra pagina, ou outra coisa. Exemplo! A segunda pagina.
+					O video do youtube? Também da certo. Peguei o link de um video do meu canal de detonado. Esqueci que precisa do "embed". Lembrem sempre disso. É ele que faz a nossa conexão com o youtube. vimos que deu conexão, mas que o video deu play. Quando acontecer isso, vá no video, clique em compartilhar e em incorporar
+				Agora podemos saber onde mexer. se colocar um menu, teremos que nomear a div de menu.
+				O comentario do CSS é /* */
+					
+					Só pra vocês verem, antes da tag link rel. Essa página ainda está obedecendo ao css interno. Agora! com o link rel. Não precisa dos dois pontos (..). Vamos usar mais pra frente.
+
+		</div>
+		<a class="txt-more" href="javascript:void(0)"></a>
+	</div>
+	<script type="text/javascript">
+		var morelinks = document.querySelectorAll(".section > .txt-more");
+		for (var i = 0, j = morelinks.length; i < j; i++) {
+			morelinks[0].onclick = function (){
+				var container = this.parentNode.querySelector(".container");
+
+				container.classList.toggle("partial");
+				this.classList.toggle("txt-more");
+			};
+			
+		}
+	</script>			
+
+</body>
+</html>
