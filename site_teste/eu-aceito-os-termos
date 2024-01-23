@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>eu aceito os termos</title>
+	<script type="text/javascript">
+		function checkCheckBox(f)
+		{
+			if (f.agree.checked == false)
+			{
+				alert('Clique na caixa para continuar');
+				return false;
+			}else
+			return true;
+		}
+
+	</script>
+</head>
+<body>
+<form action="/yourscript.cgi-or-your-page.html" method="POST" onsubmit="return checkCheckBox(this)">
+	Eu aceito<input type="checkbox" value="0" name="agree">
+	<input type="submit" value="Próximo Passo">
+	<input type="button" value="Não Aceito" onclick="document.location.href='/index.cgi';">
+	<p>Curtiram? Então se inscrevam para aprender mais. </p>
+	Ou melhor, cliquem em "Eu Aceito" para obter mais aula. <p style="color: red;">kkkkkk</p>
+</form>
+</body>
+</html>
