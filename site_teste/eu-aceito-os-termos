@@ -14,6 +14,15 @@
 		}
 
 	</script>
+
+	<script type="text/javascript">
+		function ContarCaracteres(campo, contador, limite){
+			if (campo.value.length > limite)
+				campo.value = campo.value.substring(0, limite);
+			else
+				contador.value = limite - campo.value.length;
+		}
+	</script>
 </head>
 <body>
 <form action="/yourscript.cgi-or-your-page.html" method="POST" onsubmit="return checkCheckBox(this)">
@@ -22,6 +31,18 @@
 	<input type="button" value="Não Aceito" onclick="document.location.href='/index.cgi';">
 	<p>Curtiram? Então se inscrevam para aprender mais. </p>
 	Ou melhor, cliquem em "Eu Aceito" para obter mais aula. <p style="color: red;">kkkkkk</p>
+
+	<p>Vamos ver agora</p>
 </form>
+
+<form name="teste" action="URL-do-script">
+	<textarea onkeydown="ContarCaracteres(this,this.form.contador,40)" onkeyup="ContarCaracteres(this,this.form.contador,40)" cols="35" rows="8"></textarea>&nbsp;
+	<script type="text/javascript">
+		document.write("<input type='text' size='4' name='contador' value='40' style='border: none; text-aling: right' readonly='readonly'>")
+	</script> caracteres restantes
+	<input type="submit" value="Enviar">
+	
+</form>
+
 </body>
 </html>
