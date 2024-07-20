@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Álbum de Fotos</title>
+  <link rel="stylesheet" href="style.css">
+  <style type="text/css">
+    .container {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #adicionarAlbum {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .albuns {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .album {
+      width: 300px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      padding: 10px;
+    }
+
+    .album input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    .fotos {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .fotos img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Meus Álbuns de Fotos</h1>
+    <button id="adicionarAlbum">+</button>
+    <div class="albuns">
+      </div>
+  </div>
+
+  <script>
+    const adicionarAlbumBtn = document.getElementById('adicionarAlbum');
+    const albunsContainer = document.querySelector('.albuns');
+
+    let albumId = 0;
+
+    adicionarAlbumBtn.addEventListener('click', () => {
+      const novoAlbum = criarAlbum(albumId++);
+      albunsContainer.appendChild(novoAlbum);
+    });
+
+    function criarAlbum(id) {
+      const divAlbum = document.createElement('div');
+      divAlbum.classList.add('album');
+      divAlbum.id = `album-${id}`;
+
+      const inputNome = document.createElement('input');
+      inputNome.type = 'text';
+      inputNome.placeholder = 'Nome do álbum';
+      divAlbum.appendChild(inputNome);
+
+      const fotosContainer = document.createElement('div');
+      fotosContainer.classList.add('fotos');
+      divAlbum.appendChild(fotosContainer);
+
+      const adicionarFotoBtn = document.createElement('button');
+      adicionarFotoBtn.textContent = '+ Foto';
+      adicionarFotoBtn.addEventListener('click', () => {
+        adicionarFoto(id, fotosContainer);
+      });
+      divAlbum.appendChild(adicionarFotoBtn);
+
+      return divAlbum;
+    }
+
+    function adicionarFoto(albumId, fotosContainer) {
+      const foto = document.createElement('img');
+      foto.src = 'placeholder.jpg';
+      foto.alt = 'Descrição da foto';
+      fotosContainer.appendChild(foto);
+    }
+
+  </script>
+</body>
+</html>
